@@ -1,0 +1,33 @@
+연습장에 
+touch a.txt :  파일 생성
+ls : 현 파일 목록
+mkdir startcamp2 : 폴더 생성.
+start : 파일 실행
+cd : 디렉토리 변경(위치 디동)
+cd ../../.. : 상위의 상위의 상위 디렉토리로 
+rm 
+rm - r 폴더 삭제
+pwd 절대 경로( ~이후부터가 홈 디텍토리 주소)
+ctrl + shift + c : 터미널 복사.
+shift + insert : 터미널 붙여넣기.
+ctrl + I : 클리어
+git init : 깃 파일 (재)접속 <------------------------> rm -r .git : 깃 파일 삭제.
+git status : 올라와있는 파일 상태 및 현황 확인.
+remote repository -> github, gitlab
+git add .
+git status : 현대 대상 폴더 내 깃 파일 확인.
+  ----------------------------------------  
+local repository -> 내가 작업하고 있는 공간.
+
+git의 세가지 영역 :  repository + working directory + staging area.
+
+[파일 탐색자] -> [보기] -> [표시] -> 숨긴 탐색자로 git file 확인 및 삭제.
+
+커밋 이력을 관리하는 것(분산 버전 관리 시스템) = git을 관리하는 것. = 분산 버전 관리 시스템
+git config-global user.name "장상호" 
+git config --global user.email "tkdgh0927@naver.com"
+git config --global -l
+
+엔지니어링 : 각 분야에서의 노하우 혹은 tip들의 모음, 질문의 퀄리티가 좋을 수록 답변의 퀄리티가 좋다!!
+
+페르소나  -> few - shot(몇 개의 예시), output 형식(txt 파일, html 파일, json), CoT(단계별로 생각하기)

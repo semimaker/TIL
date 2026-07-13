@@ -1,0 +1,16 @@
+readme.md = 전자제품 설명서와 같다.
+
+프레임워크를 보통 원격저장소에 올림, 파일이 수백개......
+형식 : git add 파일명
+git add . -> 전체 파일 및 폴더
+절대로 올려서는 안되는 파일들은 올리면 안된다 -> api key
+
+git remote : 로컬 저장소와 원격 저장소를 연결.(url)
+
+git status               # 현재 상태 확인
+git add .                # 변경 사항 스테이징
+git commit -m "메시지"    # 커밋
+git push                 # 원격 저장소로 업로드
+git pull                 # 원격 저장소 변경 내용 가져오기
+git log --oneline        # 커밋 기록 확인
+git branch               # 브랜치 확인
