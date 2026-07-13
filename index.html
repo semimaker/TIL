@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I AM | 한국의 맛</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;700&family=Pretendard:wght@300;400;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['Noto Serif KR', 'serif'],
+                        sans: ['Pretendard', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Pretendard', sans-serif; }
+        
+        .bg-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23b91c1c' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .hidden-element { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .visible-element { opacity: 1; transform: translateY(0); }
+        .scroll-progress { position: fixed; top: 0; left: 0; height: 4px; background: #b91c1c; z-index: 9999; transition: width 0.2s ease; }
+        .card-depth { box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1); }
+    </style>
+</head>
+<body class="bg-stone-50 text-stone-800 dark:bg-stone-950 dark:text-stone-100 transition-colors duration-500 bg-pattern">
+
+    <div id="progressBar" class="scroll-progress"></div>
+
+    <nav class="fixed w-full z-[100] backdrop-blur-lg bg-white/60 dark:bg-stone-900/60 border-b border-stone-200/50 dark:border-stone-800/50 p-4">
+        <div class="max-w-6xl mx-auto flex justify-between items-center pointer-events-auto">
+            <span class="font-serif text-xl font-bold tracking-widest text-red-800 dark:text-red-400" data-i18n="title">한국의 맛</span>
+            <div class="flex items-center gap-2">
+                <!-- Language Toggle -->
+                <button id="langToggle" class="px-3 py-1.5 rounded-full bg-stone-200/50 dark:bg-stone-700/50 hover:bg-stone-300 dark:hover:bg-stone-600 transition text-sm font-semibold pointer-events-auto">
+                    KR
+                </button>
+                <!-- Theme Toggle -->
+                <button id="themeToggle" class="p-2 rounded-full bg-stone-200/50 dark:bg-stone-700/50 hover:bg-stone-300 dark:hover:bg-stone-600 transition pointer-events-auto">
+                    <span id="themeIcon">🌓</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="h-screen flex flex-col items-center justify-center text-center p-6 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 pointer-events-none">
+            <svg viewBox="0 0 100 100" class="w-full h-full text-red-700 dark:text-red-500">
+                <path d="M10 50 Q 50 10 90 50 T 10 50" fill="none" stroke="currentColor" stroke-width="0.5" />
+            </svg>
+        </div>
+        <h1 class="text-5xl md:text-8xl font-serif mb-6 leading-tight drop-shadow-lg">
+            <span data-i18n="hero-title-1">시간이 빚어낸</span><br>
+            <span class="text-red-700 dark:text-red-500 italic" data-i18n="hero-title-2">깊은 맛의 세계</span>
+        </h1>
+        <p class="text-lg md:text-xl max-w-2xl opacity-80 font-light" data-i18n="hero-desc">한국 전통 음식은 자연을 담아내고,<br>천천히 기다림의 정성을 더해 완성됩니다.</p>
+        <button onclick="document.getElementById('content').scrollIntoView({behavior: 'smooth'})" class="mt-10 px-8 py-3 bg-red-700 text-white rounded-full hover:bg-red-800 hover:scale-105 transition shadow-xl shadow-red-900/20" data-i18n="hero-btn">더 알아보기</button>
+    </header>
+
+    <main id="content" class="max-w-6xl mx-auto px-6 py-20">
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-10">
+            <!-- Card 1 -->
+            <div class="hidden-element p-8 bg-white/50 dark:bg-stone-900/50 backdrop-blur-sm border border-stone-200/50 dark:border-stone-800/50 rounded-3xl hover:shadow-2xl hover:-translate-y-4 transition duration-500 card-depth">
+                <div class="w-16 h-16 bg-red-100 dark:bg-red-900/20 rounded-full flex items-center justify-center mb-6 text-2xl">🏺</div>
+                <h2 class="text-2xl font-serif mb-3" data-i18n="card1-title">발효의 미학</h2>
+                <p class="text-sm opacity-70 leading-relaxed" data-i18n="card1-desc">시간이 흐를수록 깊어지는 김치와 장류는 우리 식탁의 중심을 잡는 뿌리입니다.</p>
+            </div>
+            <!-- Card 2 -->
+            <div class="hidden-element p-8 bg-white/50 dark:bg-stone-900/50 backdrop-blur-sm border border-stone-200/50 dark:border-stone-800/50 rounded-3xl hover:shadow-2xl hover:-translate-y-4 transition duration-500 card-depth">
+                <div class="w-16 h-16 bg-red-100 dark:bg-red-900/20 rounded-full flex items-center justify-center mb-6 text-2xl">🍚</div>
+                <h2 class="text-2xl font-serif mb-3" data-i18n="card2-title">조화로운 한그릇</h2>
+                <p class="text-sm opacity-70 leading-relaxed" data-i18n="card2-desc">다채로운 제철 나물과 고추장이 어우러져 만드는 오방색의 조화는 균형 그 자체입니다.</p>
+            </div>
+            <!-- Card 3 -->
+            <div class="hidden-element p-8 bg-white/50 dark:bg-stone-900/50 backdrop-blur-sm border border-stone-200/50 dark:border-stone-800/50 rounded-3xl hover:shadow-2xl hover:-translate-y-4 transition duration-500 card-depth">
+                <div class="w-16 h-16 bg-red-100 dark:bg-red-900/20 rounded-full flex items-center justify-center mb-6 text-2xl">🍲</div>
+                <h2 class="text-2xl font-serif mb-3" data-i18n="card3-title">정성을 담은 국물</h2>
+                <p class="text-sm opacity-70 leading-relaxed" data-i18n="card3-desc">오랜 시간 끓여낸 육수는 지친 몸을 위로하는 따뜻한 온기가 되어줍니다.</p>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const translations = {
+            kr: {
+                title: "한국의 맛",
+                "hero-title-1": "시간이 빚어낸",
+                "hero-title-2": "깊은 맛의 세계",
+                "hero-desc": "한국 전통 음식은 자연을 담아내고,<br>천천히 기다림의 정성을 더해 완성됩니다.",
+                "hero-btn": "더 알아보기",
+                "card1-title": "발효의 미학",
+                "card1-desc": "시간이 흐를수록 깊어지는 김치와 장류는 우리 식탁의 중심을 잡는 뿌리입니다.",
+                "card2-title": "조화로운 한그릇",
+                "card2-desc": "다채로운 제철 나물과 고추장이 어우러져 만드는 오방색의 조화는 균형 그 자체입니다.",
+                "card3-title": "정성을 담은 국물",
+                "card3-desc": "오랜 시간 끓여낸 육수는 지친 몸을 위로하는 따뜻한 온기가 되어줍니다."
+            },
+            en: {
+                title: "Taste of Korea",
+                "hero-title-1": "Crafted by Time,",
+                "hero-title-2": "A World of Deep Flavor",
+                "hero-desc": "Korean traditional food captures the essence of nature,<br>completed by the dedication of waiting patiently.",
+                "hero-btn": "Explore More",
+                "card1-title": "Aesthetics of Fermentation",
+                "card1-desc": "Kimchi and Jang, which deepen with time, are the roots that ground our dining table.",
+                "card2-title": "Harmonious Bowl",
+                "card2-desc": "The harmony of five colors created by seasonal vegetables and Gochujang is the essence of balance.",
+                "card3-title": "Soulful Broth",
+                "card3-desc": "Broth, boiled for a long time, becomes a warm comfort that heals tired bodies."
+            }
+        };
+
+        let currentLang = 'kr';
+        const langToggle = document.getElementById('langToggle');
+        const themeToggle = document.getElementById('themeToggle');
+
+        // Dark mode
+        themeToggle.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+        });
+
+        // Language
+        langToggle.addEventListener('click', () => {
+            currentLang = currentLang === 'kr' ? 'en' : 'kr';
+            langToggle.textContent = currentLang.toUpperCase();
+            updateLanguage();
+        });
+
+        function updateLanguage() {
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[currentLang][key]) {
+                    el.innerHTML = translations[currentLang][key];
+                }
+            });
+        }
+
+        // Scroll progress
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('progressBar').style.width = scrolled + "%";
+        });
+
+        // Scroll animation
+        const observerOptions = { threshold: 0.2 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible-element');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.hidden-element').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
