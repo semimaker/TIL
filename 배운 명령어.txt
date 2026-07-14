@@ -14,3 +14,10 @@ git push                 # 원격 저장소로 업로드
 git pull                 # 원격 저장소 변경 내용 가져오기
 git log --oneline        # 커밋 기록 확인
 git branch               # 브랜치 확인
+
+.env : 보안상 노출되면 안되는 api key 같은 것들을 한 파일에 묶어놓는다.
+
+<VS code>
+ctri + ,  : settings
+crtl + b : 사이드바 여닫이
+ctrl + \ : 터미널 여닫이 -> select default profile
