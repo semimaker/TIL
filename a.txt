@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 ㅎㅎ
+=======
+안녕하세요xcsvsdbdf
+>>>>>>> 69e89dea73d3eb525e3d2bf2fbd191070ddc708e
